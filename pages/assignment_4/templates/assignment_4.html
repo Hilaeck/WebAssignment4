@@ -1,0 +1,66 @@
+{% extends 'Base.html' %}
+
+{% block title %}Our Employees{% endblock %}
+
+{% block main %}
+
+<h1>Our employees:</h1>
+
+{% if message %}
+<h2>{{ message }}</h2>
+{% endif %}
+
+<div class="grid-container">
+    <div class="grid-item">
+        <h1 class="grid-item-header">Insert Form</h1>
+        <p class="grid-item-content">
+        <form action="/assignment_4/insertEmp" method="post">
+            <input type="text" name="name" placeholder="Insert Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="nickname" placeholder="Insert nickname" required>
+            <input type="password" name="password" placeholder="Insert password" required>
+            <input type="submit">
+        </form>
+        </p>
+    </div>
+    <div class="grid-item">
+        <h1 class="grid-item-header">JSON</h1>
+        <p class="grid-item-content">
+            <button><a href="/assignment_4/employees">Get as JSON</a></button>
+        </p>
+    </div>
+    <div class="grid-item">
+        <h1 class="grid-item-header">Get Avatar</h1>
+        <div>
+            <h2 class="center">Outer Source Form (Front)</h2>
+            <form id="outer-source__form">
+                <input class="input" type="number" name="id" placeholder="Insert ID (1-12)" max="12" min="0" required>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+
+    <div class="grid-item">
+        <h1 class="grid-item-header">Employees</h1>
+        <p class="grid-item-hours">{% for emp in employees %}
+        <div>
+            {# {{ emp }}#}
+            <h3>{{ emp.name }}</h3>
+            <h4>Email: {{ emp.email }}</h4>
+            <h3>nickname: {{ emp.nickname }}</h3>
+            <form action="/assignment_4/deleteEmp" method="post">
+                <input type="hidden" name="email" value={{emp.email}}>
+                <input type="submit" value="delete">
+            </form>
+            <form action="/assignment_4/updateEmp2" method="post">
+                <input type="hidden" name="email" value={{emp.email}}>
+                <input type="hidden" name="name" value={{emp.name}}>
+                <input type="submit" value="update">
+            </form>
+        </div>
+            {% endfor %}
+        </p>
+    </div>
+</div>
+
+{% endblock %}

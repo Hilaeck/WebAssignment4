@@ -1,0 +1,226 @@
+.container {
+    max-width: 70em;
+    margin: 0 auto;
+  }
+
+#imageheader{
+    margin: 0 auto;
+    background: #c6f1e7;
+    background-size: cover;
+
+}
+
+#cowLogo{
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto; 
+    animation: blink 2s
+}
+
+#nav-bar{
+    background: #58606d;
+    margin: 0;
+    height: 30px;
+    list-style: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+    display:flex;
+}
+
+a{
+    color: aliceblue;
+    margin: 10px 20px;
+    font-size: 18px;
+}
+
+a:hover{
+    color: rgb(238, 241, 9)
+}
+
+
+/* the current page */
+.active {
+    border: dashed #1ab115 5px;
+  }
+  
+  li {
+      display: inline;
+  }
+
+#MainPage{
+    display: grid;
+    grid-template-areas: 'extra Main Main' 
+                         'extra2 Main Main' 
+                         'extra2 Main Main';
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+}
+
+#mainSlogen{
+    grid-area: extra;
+    font-style: oblique;
+    margin: 100px auto;
+    font-size: 50px;
+    margin-bottom: 0px; 
+}
+
+#slogen{
+    font-size: 30px;
+    grid-area: extra2;
+    font-style: oblique;
+   margin: 10px auto;
+   
+}
+
+#woman{
+    grid-area: Main;
+    height: 80%;
+    margin-left: 100px;
+}
+
+#footer{
+    font-size: 10px;
+}
+
+@keyframes megaLogo {
+    0% {
+        transform: scaleX(30);
+    }
+    100% {
+        transform: scaleX(1);
+    }  
+}
+
+@keyframes blink {
+    0% {opacity: 0;}
+    33% {opacity: 0.5;}
+    66% {opacity: 1;}
+    
+}
+
+
+#ContactForm{
+    display: grid;
+    grid-template-areas:'Main Main Header' 
+                        'Main Main Header' 
+                        'Main Main Header' 
+                        'Main Main button';
+    background-color: aliceblue;
+    width: 80%;
+    margin: 10px;
+}
+
+#instructions{
+    grid-area: Header;
+    margin: 10px;
+    font-size: 20px;
+}
+
+#questions{
+    grid-area: Main;
+    margin: 10px;
+}
+
+#Q{
+    margin: 5px;
+    padding: 5px;
+}
+
+#submit{
+    grid-area: button;
+    background: #c6f1e7;
+    color: #58606d;
+    border-style: outset;
+    border-color: #c6f1e7;
+    height: 30px;
+    width: 100px;
+    font: bold15px arial,sans-serif;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+#builder{
+    height: 30%;
+    width: 30%;
+}
+
+#empSearch{
+    margin: 20px 10px;
+}
+
+#empNotFound{
+    color: red;
+    font-size: 30px;
+}
+
+.logged{
+    color : #58606d;
+    background: #c6f1e7;
+    background-size: cover;
+    height: 40px;
+    margin: 0;
+}
+
+#welcome{
+    text-align: center;
+}
+
+#logout{
+    background: #58606d;
+    color: white;
+    float: right;
+}
+
+@media only screen and (max-width: 700px) {
+    #MainPage{
+        display: grid;
+        grid-template-areas: 'extra extra extra' 
+                             'Main Main Main' 
+                             'extra2 extra2 extra2' ;
+    }
+    #cow{
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        width: 220px;
+    }
+    #mainSlogen{
+        display:flex;
+        margin: auto;
+        padding-bottom: 10px;
+        font-size: 30px ;   
+    }
+    #slogen{
+        margin: 0 0;
+        font-size: 20px ; 
+    }
+    #woman{
+        height: 50%;
+        margin: 0 auto;
+     
+    }
+}
+
+@media only screen and (max-width: 550px){
+    #ContactForm{
+        display: grid;
+        grid-template-areas: 'Header Header Header'
+                             'Main Main Main' 
+                             'Main Main Main' 
+                             'button button button';
+        width: 50%;
+    }
+    #instructions{
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    
+}
+
+.container {
+    border: darkgrey 3px solid;
+    border-radius: 5px;
+    margin: 10px auto;
+    width: 50%;
+    padding: 10px;
+    align-content: center;
+}

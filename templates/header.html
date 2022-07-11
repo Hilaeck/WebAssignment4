@@ -1,0 +1,24 @@
+
+<center>
+<header>
+    <div id="imageheader"> <img id="cowLogo" ; src="{{url_for('static',filename='logo.jpg')}}" alt="oops"></div>
+    {% if session['logedin'] %}
+        <h2 class="logged"> Hi, {{ session['nickname'] }}</h2>
+    {% else %}
+        <h2 class="logged">Please Log In</h2>
+    {% endif %}
+</header>
+</center>
+
+<nav>
+    <ul id="nav-bar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/onProgress">About us</a></li>
+        <li><a href="/onProgress">Join us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/assignment_4">Assignment_4</a></li>
+    </ul>
+</nav>
+
+
+

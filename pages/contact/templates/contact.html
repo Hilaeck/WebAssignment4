@@ -1,0 +1,52 @@
+{% extends 'Base.html' %}
+
+{% block title %}Contact MoneyMoo{% endblock %}
+
+{% block main %}
+      <form action="" id="ContactForm" onsubmit="sayThankU()">
+        <style>    
+            body{background:url(../../../static/money.jpg);}
+            </style>
+          <h4 id="instructions"> <p>Please fill in your information in the form </p> <p>(* is required)</p></h4>
+        <h4 id="questions"> 
+            <div id="Q">
+            <label for="firstName">First Name *</label><br>
+            <input type="text" id="firstName" name="firstName" placeholder="FirstName" required>
+            </div>
+            <div id="Q">
+                <label for="lastName">Last Name *</label><br>
+                <input type="text" id="lastName" name="lastName" placeholder="LastName" required>
+            </div>
+            <div id="Q">
+                <label for="ID">ID Number * </label><br>
+                <input type="number" id="ID" name="ID" placeholder="ID" minlength="8" maxlength="9" required>
+            </div>
+            <div id="Q">
+                <label for="email">Email *</label><br>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div id="Q">
+                <label for="phoneNumber">Phone Number</label><br>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="PhoneNumber" minlength="9" maxlength="12">
+            </div>
+            <div id="Q">   
+                <label for="whereFrom">How did you hear about us?:</label>
+                <select name="options" id="options" required>
+                    <option value="friendsORfamily">friends or family</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="TV">TV</option>
+                    <option value="other">other</option>
+                </select>
+            </div> 
+        </h4>
+            <input type="submit" value="Submit"  id="submit">            
+</form>
+
+{% endblock %}
+
+
+
+
+  
+

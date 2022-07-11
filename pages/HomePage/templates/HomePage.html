@@ -1,0 +1,14 @@
+{% extends 'Base.html' %}
+
+{% block title %}Bank MoneyMoo{% endblock %}
+
+{% block main %}
+        <div id="MainPage">
+            <h2 id="mainSlogen"><div>Family,</div> <div>Safety,</div><div> Reliability</div> </h2>
+            <h2 id="slogen">join us today, to help the tommorow!</h2>
+
+            <img id="woman" onclick="changeImage()"  src="{{url_for('static',filename='womanMoney.jpg')}}" alt="oops">
+        </div>
+{% endblock %}
+
+

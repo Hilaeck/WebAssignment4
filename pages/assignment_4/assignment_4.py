@@ -88,7 +88,7 @@ def delete_emp():
     employees_list = interact_db(query, query_type='fetch')
     return render_template('assignment_4.html', employees=employees_list, message="employee deleted!")
 
-@assignment_4.route('/assignment_4/employees', methods=['GET'])
+@assignment_4.route('/assignment_4/users', methods=['GET'])
 def get_emps():
     query = 'select * from employees'
     employees_list = interact_db(query, query_type='fetch')
@@ -100,3 +100,38 @@ def get_emps():
             'nickname': emp.nickname
         })
     return jsonify(employees_array)
+
+@assignment_4.route('/assignment_4/outer_source', methods=['GET', 'POST'])
+def outer_source():
+    query = 'select * from employees'
+    employees_list = interact_db(query, query_type='fetch')
+    employees_id = request.form['id']
+    result = requests.get('https://reqres.in/api/users/' + employees_id)
+    return render_template('assignment_4.html', user_from_api=result.json()['data'], users=employees_list)
+
+@assignment_4.route('/assignment_4/restapi_users/', methods=['GET'])
+def get_default_user():
+    query = 'select * from employees where id=1'
+    employees = interact_db(query, query_type='fetch')[0]
+    employees_dict = {
+        'username': employees.nickname,
+        'email': employees.email,
+        'name': employees.name
+    }
+    return jsonify(employees_dict)
+
+@assignment_4.route('/assignment_4/restapi_users/<int:USER_ID>', methods=['GET'])
+def get_user(USER_ID):
+    query = "select * from users where id='%s'" % USER_ID
+    employees = interact_db(query, query_type='fetch')[0]
+    if employees:
+        employees_dict = {
+            'username': employees.nickname,
+            'email': employees.email,
+            'name': employees.name
+        }
+        return jsonify(employees_dict)
+    return jsonify({
+        'error': '404',
+        'message': 'User not found!!'
+    })

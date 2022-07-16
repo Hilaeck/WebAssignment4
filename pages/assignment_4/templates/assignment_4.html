@@ -4,16 +4,16 @@
 
 {% block main %}
 
-<h1>Our employees:</h1>
+<h1 id="welcome">Our employees:</h1>
 
 {% if message %}
 <h2>{{ message }}</h2>
 {% endif %}
 
-<div class="grid-container">
-    <div class="grid-item">
-        <h1 class="grid-item-header">Insert Form</h1>
-        <p class="grid-item-content">
+<div>
+    <div>
+        <h1>Insert Form</h1>
+        <p>
         <form action="/assignment_4/insertEmp" method="post">
             <input type="text" name="name" placeholder="Insert Name" required>
             <input type="email" name="email" placeholder="Email" required>
@@ -23,40 +23,61 @@
         </form>
         </p>
     </div>
-    <div class="grid-item">
-        <h1 class="grid-item-header">JSON</h1>
-        <p class="grid-item-content">
-            <button><a href="/assignment_4/employees">Get as JSON</a></button>
+    <div>
+        <h1>JSON</h1>
+        <p>
+            <button id="json"><a href="/assignment_4/users">Get as JSON</a></button>
         </p>
     </div>
-    <div class="grid-item">
-        <h1 class="grid-item-header">Get Avatar</h1>
+    <div>
+        <h1>Get employee</h1>
         <div>
-            <h2 class="center">Outer Source Form (Front)</h2>
-            <form id="outer-source__form">
-                <input class="input" type="number" name="id" placeholder="Insert ID (1-12)" max="12" min="0" required>
+            <h2>Outer Source Form (Front)</h2>
+            <form>
+                <input type="number" name="id" placeholder="Insert ID (1-12)" max="12" min="0" required>
                 <input type="submit">
             </form>
         </div>
     </div>
 
-    <div class="grid-item">
-        <h1 class="grid-item-header">Employees</h1>
-        <p class="grid-item-hours">{% for emp in employees %}
-        <div>
+<div>
+    <img class="invisible" src="" alt="image" />
+</div>
+
+<div>
+    <h2>Outer Source Form (Back)</h2>
+        <form action="/assignment_4/outer_source" method="post">
+            <input type="number" name="id" placeholder="Insert ID (1-12)" max="12" min="0"  required>
+            <input type="submit">
+        </form>
+</div>
+
+<div>
+    {% if user_from_api %}
+    <img src={{user_from_api["avatar"]}} alt="image" />
+    {% endif %}
+</div>
+
+    <div>
+        <h1 id="welcome">Employees</h1>
+        <p>{% for emp in employees %}
+        <div class="container">
             {# {{ emp }}#}
-            <h3>{{ emp.name }}</h3>
+            <h2>{{ emp.name }}</h2>
             <h4>Email: {{ emp.email }}</h4>
             <h3>nickname: {{ emp.nickname }}</h3>
-            <form action="/assignment_4/deleteEmp" method="post">
+            <div class="updateButton">
+                <form action="/assignment_4/deleteEmp" method="post">
                 <input type="hidden" name="email" value={{emp.email}}>
-                <input type="submit" value="delete">
+                <input  type="submit" value="delete">
             </form>
-            <form action="/assignment_4/updateEmp2" method="post">
+            <form action="/assignment_4/updateEmp2" method="post" >
                 <input type="hidden" name="email" value={{emp.email}}>
                 <input type="hidden" name="name" value={{emp.name}}>
                 <input type="submit" value="update">
             </form>
+            </div>
+
         </div>
             {% endfor %}
         </p>

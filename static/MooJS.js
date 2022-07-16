@@ -34,3 +34,18 @@ function sayThankU() {
     }
 
 
+
+document.querySelector('#outer-source__form')?.addEventListener('submit',(e)=> {
+    e.preventDefault()
+    const id = e.target.id.value
+    fetch('https://reqres.in/api/users/' + id)
+        .then(results => results.json())
+        .then(json => {
+            const image = document.querySelector('#outer-source__image1')
+            image.classList.remove('invisible')
+            image.src = json.data.avatar
+        })
+        .catch((e) => {
+        console.log(e)
+        })
+})

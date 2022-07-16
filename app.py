@@ -6,6 +6,7 @@ from flask import request, session, jsonify
 import mysql.connector
 
 
+
 app = Flask(__name__)
 
 app.secret_key = '123'

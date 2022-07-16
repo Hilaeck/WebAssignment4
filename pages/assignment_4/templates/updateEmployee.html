@@ -7,9 +7,9 @@
  <div>
     <h2 class="center">Updates {{name}} :</h2>
         <form action="/assignment_4/updateEmp" method="POST">
-            <input type="text" name="name" placeholder="update name" >
-            <input type="text" name="nickname" placeholder="update nickname" >
-            <input type="password" name="password" placeholder="update password" >
+            <input type="text" name="name" placeholder="update name" required>
+            <input type="text" name="nickname" placeholder="update nickname" required >
+            <input type="password" name="password" placeholder="update password" required>
             <input type="hidden" name="email" value={{email}}>
             <input type="submit">
         </form>

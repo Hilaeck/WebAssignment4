@@ -1,7 +1,4 @@
-.container {
-    max-width: 70em;
-    margin: 0 auto;
-  }
+
 
 #imageheader{
     margin: 0 auto;
@@ -133,7 +130,7 @@ a:hover{
     border-color: #c6f1e7;
     height: 30px;
     width: 100px;
-    font: bold15px arial,sans-serif;
+    font: bold 15px arial,sans-serif;
     margin: auto;
     margin-bottom: 15px;
 }
@@ -223,4 +220,20 @@ a:hover{
     width: 50%;
     padding: 10px;
     align-content: center;
+}
+.employees {
+    margin: 10px auto;
+}
+
+.updateButton{
+    margin: 10px;
+    display: inline-flex;
+}
+
+#json{
+    background-color:#58606d ;
+}
+
+.invisible {
+    display: none;
 }
